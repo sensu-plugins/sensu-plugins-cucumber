@@ -34,6 +34,9 @@ require 'yaml'
 require 'socket'
 require 'English'
 
+#
+# Check Cucumber
+#
 class CheckCucumber < Sensu::Plugin::Check::CLI
   OK = 0
   WARNING = 1
@@ -98,7 +101,7 @@ class CheckCucumber < Sensu::Plugin::Check::CLI
          long: '--debug',
          boolean: true
 
-  def parse_options(argv)
+  def parse_options(argv) # rubocop:disable all
     env = {}
     event_data = {}
 
@@ -120,7 +123,7 @@ class CheckCucumber < Sensu::Plugin::Check::CLI
     super(argv)
   end
 
-  def run
+  def run # rubocop:disable all
     return unless config_is_valid?
 
     result = nil
@@ -204,7 +207,7 @@ class CheckCucumber < Sensu::Plugin::Check::CLI
     end
   end
 
-  def config_is_valid?
+  def config_is_valid? # rubocop:disable all
     if config[:name].nil?
       unknown_error 'No name specified'
       return false
@@ -261,23 +264,23 @@ class CheckCucumber < Sensu::Plugin::Check::CLI
     end
   end
 
-  def generate_name_from_scenario(feature, scenario)
+  def generate_name_from_scenario(feature, scenario) # rubocop:disable all
     name = scenario[:id]
     name += ";#{feature[:profile]}" if feature.key? :profile
 
     name = name.gsub(/\./, '-')
-      .gsub(/;/, '.')
-      .gsub(/[^a-zA-Z0-9\._-]/, '-')
-      .gsub(/^\.+/, '')
-      .gsub(/\.+$/, '')
-      .gsub(/\.+/, '.')
+           .gsub(/;/, '.')
+           .gsub(/[^a-zA-Z0-9\._-]/, '-')
+           .gsub(/^\.+/, '')
+           .gsub(/\.+$/, '')
+           .gsub(/\.+/, '.')
 
     parts = []
 
     name.split('.').each do |part|
       part = part.gsub(/^-+/, '')
-        .gsub(/-+$/, '')
-        .gsub(/-+/, '-')
+             .gsub(/-+$/, '')
+             .gsub(/-+/, '-')
 
       parts << part unless part.length == 0
     end
@@ -308,7 +311,7 @@ class CheckCucumber < Sensu::Plugin::Check::CLI
     errors
   end
 
-  def generate_metrics_from_scenario(feature, scenario, scenario_status, utc_timestamp)
+  def generate_metrics_from_scenario(feature, scenario, scenario_status, utc_timestamp) # rubocop:disable all
     metrics = []
 
     if scenario_status == :passed
@@ -389,7 +392,7 @@ class CheckCucumber < Sensu::Plugin::Check::CLI
     socket.close
   end
 
-  def generate_sensu_event(event_name, feature, scenario, scenario_status)
+  def generate_sensu_event(event_name, feature, scenario, scenario_status) # rubocop:disable all
     scenario_clone = deep_dup(scenario)
     remove_attachments_from_scenario(scenario_clone) unless config[:attachments]
     feature_clone = deep_dup(feature)
@@ -461,7 +464,7 @@ class CheckCucumber < Sensu::Plugin::Check::CLI
     scenario_status
   end
 
-  def get_output_for_scenario(scenario, scenario_status)
+  def get_output_for_scenario(scenario, scenario_status) # rubocop:disable all
     steps_output = []
 
     Array(scenario[:steps]).each_with_index do |step, index|

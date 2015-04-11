@@ -16,6 +16,22 @@
 
 ## Usage
 
+Example check_cucumber.json:
+
+``` json
+{
+  "checks": {
+    "check_cucumber_example": {
+      "handlers": ["default"],
+      "command": "check-cucumber.rb --name cucumber-example --handler cucumber --metric-handler metrics --metric-prefix example-metrics-prefix --command \"cucumber-js -f json features/\" --working-dir cucumber-example/",
+      "interval": 60,
+      "subscribers": [ "cucumber" ]
+    }
+  }
+}
+```
+
+
 ## Installation
 
 Add the public key (if you haven’t already) as a trusted certificate
@@ -33,7 +49,7 @@ You can also download the key from /certs/ within each repository.
 
 #### Bundler
 
-Add *sensu-plugins-disk-checks* to your Gemfile and run `bundle install` or `bundle update`
+Add *sensu-plugins-cucumber* to your Gemfile and run `bundle install` or `bundle update`
 
 #### Chef
 
@@ -54,3 +70,11 @@ end
 ```
 
 ## Notes
+
+Sensu check that executes Cucumber tests
+
+The check supports:
+* cucumber-js
+* cucumber-jvm
+* Ruby Cucumber
+* parallel-cucumber-js
