@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.signing_key            = File.expand_path(pvt_key) if $PROGRAM_NAME =~ /gem\z/
   s.summary                = 'Sensu plugins for cucumber'
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
-  s.version                = SensuPluginsCucumber::VERSION
+  s.version                = SensuPluginsCucumber::Version::VER_STRING
 
   s.add_runtime_dependency 'rest-client',  '1.8.0'
   s.add_runtime_dependency 'english',      '0.6.3'
