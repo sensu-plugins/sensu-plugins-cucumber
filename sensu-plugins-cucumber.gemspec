@@ -37,7 +37,6 @@ Gem::Specification.new do |s|
   s.test_files             = s.files.grep(%r{^(test|spec|features)/})
   s.version                = SensuPluginsCucumber::Version::VER_STRING
 
-  s.add_runtime_dependency 'rest-client',  '1.8.0'
   s.add_runtime_dependency 'english',      '0.6.3'
   s.add_runtime_dependency 'sensu-plugin', '1.1.0'
 
