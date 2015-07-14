@@ -1,6 +1,6 @@
 ## Sensu-Plugins-cucumber
 
-[![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-cucumber.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-cucumber)
+[ ![Build Status](https://travis-ci.org/sensu-plugins/sensu-plugins-cucumber.svg?branch=master)](https://travis-ci.org/sensu-plugins/sensu-plugins-cucumber)
 [![Gem Version](https://badge.fury.io/rb/sensu-plugins-cucumber.svg)](http://badge.fury.io/rb/sensu-plugins-cucumber)
 [![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-cucumber/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-cucumber)
 [![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-cucumber/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-cucumber)
