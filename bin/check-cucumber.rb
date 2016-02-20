@@ -268,19 +268,19 @@ class CheckCucumber < Sensu::Plugin::Check::CLI
     name = scenario[:id]
     name += ";#{feature[:profile]}" if feature.key? :profile
 
-    name = name.gsub(/\./, '-')
-           .gsub(/;/, '.')
-           .gsub(/[^a-zA-Z0-9\._-]/, '-')
-           .gsub(/^\.+/, '')
-           .gsub(/\.+$/, '')
-           .gsub(/\.+/, '.')
+    name = name.tr('.', '-')
+               .tr(';', '.')
+               .gsub(/[^a-zA-Z0-9\._-]/, '-')
+               .gsub(/^\.+/, '')
+               .gsub(/\.+$/, '')
+               .gsub(/\.+/, '.')
 
     parts = []
 
     name.split('.').each do |part|
       part = part.gsub(/^-+/, '')
-             .gsub(/-+$/, '')
-             .gsub(/-+/, '-')
+                 .gsub(/-+$/, '')
+                 .gsub(/-+/, '-')
 
       parts << part unless part.length == 0
     end
@@ -341,11 +341,11 @@ class CheckCucumber < Sensu::Plugin::Check::CLI
       end
     end
 
-    if metrics.length == 0
-      metrics = nil
-    else
-      metrics = metrics.join("\n")
-    end
+    metrics = if metrics.length == 0
+                nil
+              else
+                metrics.join("\n")
+              end
 
     metrics
   end
@@ -408,7 +408,7 @@ class CheckCucumber < Sensu::Plugin::Check::CLI
                              CRITICAL
                            when :pending, :undefined
                              WARNING
-    end
+                           end
 
     sensu_event = {
       name: event_name,

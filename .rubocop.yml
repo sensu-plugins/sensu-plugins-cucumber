@@ -31,3 +31,6 @@ Style/Documentation:
 
 Style/Next:
   Enabled: false
+
+Style/ZeroLengthPredicate:
+  Enabled: false
