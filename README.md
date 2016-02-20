@@ -5,7 +5,6 @@
 [![Code Climate](https://codeclimate.com/github/sensu-plugins/sensu-plugins-cucumber/badges/gpa.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-cucumber)
 [![Test Coverage](https://codeclimate.com/github/sensu-plugins/sensu-plugins-cucumber/badges/coverage.svg)](https://codeclimate.com/github/sensu-plugins/sensu-plugins-cucumber)
 [![Dependency Status](https://gemnasium.com/sensu-plugins/sensu-plugins-cucumber.svg)](https://gemnasium.com/sensu-plugins/sensu-plugins-cucumber)
-[ ![Codeship Status for sensu-plugins/sensu-plugins-cucumber](https://codeship.com/projects/f44b0a20-d4e8-0132-2baa-0e210ac4c62f/status?branch=master)](https://codeship.com/projects/77915)
 
 ## Functionality
 
